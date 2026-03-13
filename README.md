@@ -159,24 +159,6 @@ pip install bridgesql
 uvx bridgesql init
 ```
 
-## CLI 사용법
-
-```
-sqe init                      최초 설정 (API 키, DB 연결 정보)
-sqe config                    현재 설정 확인
-sqe profile                   스키마 분석 및 데이터 정의서 생성
-sqe status                    현재 상태 확인
-
-sqe catalog show              데이터 정의서 조회
-sqe catalog edit <table>      테이블 설명 수정
-sqe catalog clear             데이터 정의서 초기화
-
-sqe examples list             저장된 예제 목록
-sqe examples add              예제 추가
-sqe examples delete <id>      예제 삭제
-sqe examples clear            모든 예제 삭제
-```
-
 ## MCP 연결
 
 ### Claude Desktop
@@ -204,6 +186,24 @@ sqe examples clear            모든 예제 삭제
 claude mcp add bridgesql uvx bridgesql \
   -e GEMINI_API_KEY=your-api-key \
   -e DATABASE_URL=mysql+pymysql://user:password@host/dbname
+```
+
+## CLI 사용법
+
+```
+sqe init                      최초 설정 (API 키, DB 연결 정보)
+sqe config                    현재 설정 확인
+sqe profile                   스키마 분석 및 데이터 정의서 생성
+sqe status                    현재 상태 확인
+
+sqe catalog show              데이터 정의서 조회
+sqe catalog edit <table>      테이블 설명 수정
+sqe catalog clear             데이터 정의서 초기화
+
+sqe examples list             저장된 예제 목록
+sqe examples add              예제 추가
+sqe examples delete <id>      예제 삭제
+sqe examples clear            모든 예제 삭제
 ```
 
 ## 환경 변수
