@@ -65,7 +65,7 @@ sqe = "semantic_engine.cli:main"
 sqe-mcp = "semantic_engine.server:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/semantic_engine"]
+packages = ["semantic_engine"]
 
 [tool.ruff]
 line-length = 100
