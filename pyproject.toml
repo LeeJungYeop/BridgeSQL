@@ -61,11 +61,11 @@ slack = [
 ]
 
 [project.scripts]
-sqe = "semantic_engine.cli:main"
-sqe-mcp = "semantic_engine.server:main"
+sqe = "bridgesql.cli:main"
+sqe-mcp = "bridgesql.server:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["semantic_engine"]
+packages = ["bridgesql"]
 
 [tool.ruff]
 line-length = 100
