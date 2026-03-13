@@ -1,0 +1,2167 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-03T23:24:25.702787",
+  "database": "Chinook_AutoIncrement",
+  "schema": {
+    "database_name": "Chinook_AutoIncrement",
+    "tables": [
+      {
+        "name": "Album",
+        "schema": null,
+        "row_count": 347,
+        "comment": null,
+        "business_name": "음반 정보",
+        "description": "음반의 고유 ID, 제목, 그리고 해당 음반을 제작한 아티스트의 ID를 저장하는 테이블입니다. 각 음반의 기본적인 정보와 아티스트 연결 정보를 관리합니다. 347개의 음반 정보를 가지고 있으며, 음반 제목은 최대 160자까지 저장 가능합니다.",
+        "columns": [
+          {
+            "name": "AlbumId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 347,
+            "business_name": "앨범 ID",
+            "description": "앨범 테이블의 각 앨범을 고유하게 식별하는 ID입니다. Primary Key로 사용되어 앨범 테이블 내에서 유일한 값을 가지며, 다른 테이블과의 관계 설정 시 Foreign Key로 활용될 수 있습니다. 샘플 데이터를 통해 정수형 데이터가 순차적으로 증가하는 것을 확인할 수 있습니다.",
+            "keywords": [
+              "앨범",
+              "ID",
+              "식별자",
+              "Primary Key",
+              "고유 번호"
+            ]
+          },
+          {
+            "name": "Title",
+            "data_type": "VARCHAR(160) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "For Those About To Rock We Salute You",
+              "Balls to the Wall",
+              "Restless and Wild",
+              "Let There Be Rock",
+              "Big Ones",
+              "Jagged Little Pill",
+              "Facelift",
+              "Warner 25 Anos",
+              "Plays Metallica By Four Cellos",
+              "Audioslave"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 346,
+            "business_name": "앨범 제목",
+            "description": "앨범의 정식 명칭을 나타냅니다. 각 앨범을 식별하고 검색하는 데 사용되는 핵심 정보이며, 앨범의 내용과 특징을 대표하는 중요한 컬럼입니다.",
+            "keywords": [
+              "앨범",
+              "제목",
+              "앨범명",
+              "음반",
+              "이름"
+            ]
+          },
+          {
+            "name": "ArtistId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Artist.ArtistId",
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 204,
+            "business_name": "아티스트 ID",
+            "description": "앨범을 제작한 아티스트의 고유 식별자입니다. 이 ID는 Artist 테이블의 ArtistId를 참조하여 앨범과 아티스트 간의 관계를 정의합니다. 이를 통해 특정 앨범이 어떤 아티스트에 의해 제작되었는지 확인할 수 있습니다.",
+            "keywords": [
+              "앨범",
+              "아티스트",
+              "식별자",
+              "관계",
+              "FK",
+              "외래키"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Artist",
+        "schema": null,
+        "row_count": 275,
+        "comment": null,
+        "business_name": "아티스트",
+        "description": "음악 트랙을 제작하거나 연주한 아티스트의 정보를 관리하는 테이블입니다. 각 아티스트의 고유 ID와 이름을 저장하며, 음악 관련 서비스에서 아티스트를 식별하고 관리하는 데 사용됩니다.",
+        "columns": [
+          {
+            "name": "ArtistId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 275,
+            "business_name": "아티스트 ID",
+            "description": "아티스트를 고유하게 식별하는 ID입니다. 시스템 내부적으로 사용되며, 각 아티스트를 구분하고 관련 정보를 연결하는 데 중요한 역할을 합니다. 이 ID는 데이터베이스 내에서 유일하며, 다른 테이블과의 관계 설정에 사용될 수 있습니다.",
+            "keywords": [
+              "아티스트",
+              "식별자",
+              "ID",
+              "고유",
+              "기본키"
+            ]
+          },
+          {
+            "name": "Name",
+            "data_type": "VARCHAR(120) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "AC/DC",
+              "Accept",
+              "Aerosmith",
+              "Alanis Morissette",
+              "Alice In Chains",
+              "Antônio Carlos Jobim",
+              "Apocalyptica",
+              "Audioslave",
+              "BackBeat",
+              "Billy Cobham"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 275,
+            "business_name": "아티스트명",
+            "description": "아티스트의 이름을 나타냅니다. 음악 그룹 또는 솔로 아티스트의 고유한 식별 이름으로 사용됩니다. 음반 검색, 아티스트 정보 조회, 음악 라이브러리 구성 등 다양한 서비스에서 핵심적인 정보로 활용될 수 있습니다.",
+            "keywords": [
+              "아티스트",
+              "이름",
+              "그룹명",
+              "솔로",
+              "예명",
+              "뮤지션",
+              "가수"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Customer",
+        "schema": null,
+        "row_count": 59,
+        "comment": null,
+        "business_name": "고객",
+        "description": "본 테이블은 회사와 거래하는 고객에 대한 정보를 저장합니다. 각 고객의 고유 식별자(CustomerId), 이름(FirstName, LastName), 회사명(Company), 주소(Address, City, State, Country, PostalCode), 연락처(Phone, Fax, Email) 및 고객을 담당하는 지원 담당자(SupportRepId)를 포함합니다. 이 데이터는 고객 관리, 마케팅 캠페인, 판매 분석, 고객 지원 서비스 등에 활용될 수 있습니다.  예상 행 수는 59개로, 비교적 규모가 작은 고객 데이터셋입니다.",
+        "columns": [
+          {
+            "name": "CustomerId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 59,
+            "business_name": "고객 식별자",
+            "description": "각 고객을 고유하게 식별하는 데 사용되는 자동 생성된 숫자입니다. 이 ID는 데이터베이스 내에서 고객 레코드를 참조하고, 고객 관련 정보를 연결하는 데 핵심적인 역할을 수행합니다.  주문, 결제, 문의 등의 다른 테이블과 연결되어 고객 활동을 추적하고 분석하는 데 사용됩니다.",
+            "keywords": [
+              "고객",
+              "식별자",
+              "ID",
+              "PK",
+              "Primary Key",
+              "고객번호"
+            ]
+          },
+          {
+            "name": "FirstName",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Luís",
+              "Leonie",
+              "François",
+              "Bjørn",
+              "František",
+              "Helena",
+              "Astrid",
+              "Daan",
+              "Kara",
+              "Eduardo"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 56,
+            "business_name": "고객 이름",
+            "description": "고객의 이름을 나타냅니다. 서비스 이용자를 식별하고 개인화된 경험을 제공하는 데 사용됩니다. 이름 정보는 고객 관리, 마케팅 캠페인 타겟팅, 고객 지원 등 다양한 비즈니스 활동에 활용될 수 있습니다.",
+            "keywords": [
+              "고객",
+              "이름",
+              "성명",
+              "개인정보",
+              "식별",
+              "사용자",
+              "FirstName"
+            ]
+          },
+          {
+            "name": "LastName",
+            "data_type": "VARCHAR(20) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Gonçalves",
+              "Köhler",
+              "Tremblay",
+              "Hansen",
+              "Wichterlová",
+              "Holý",
+              "Gruber",
+              "Peeters",
+              "Nielsen",
+              "Martins"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 59,
+            "business_name": "고객 성",
+            "description": "고객의 성(LastName)을 나타냅니다. 고객 식별 및 개인화된 서비스 제공에 사용될 수 있습니다. 샘플 데이터는 다양한 국가의 성씨를 포함하고 있어, 국제적인 고객 기반을 가진 서비스임을 암시합니다. Not Null 제약 조건은 성 정보가 필수적으로 입력되어야 함을 의미합니다.",
+            "keywords": [
+              "고객",
+              "성",
+              "이름",
+              "개인정보",
+              "식별",
+              "LastName"
+            ]
+          },
+          {
+            "name": "Company",
+            "data_type": "VARCHAR(80) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Embraer - Empresa Brasileira de Aeronáutica S.A.",
+              "JetBrains s.r.o.",
+              "Woodstock Discos",
+              "Banco do Brasil S.A.",
+              "Riotur",
+              "Telus",
+              "Rogers Canada",
+              "Google Inc.",
+              "Microsoft Corporation",
+              "Apple Inc."
+            ],
+            "null_ratio": 0.8305,
+            "unique_count": 10,
+            "business_name": "고객사명",
+            "description": "고객사의 이름을 나타냅니다. 거래처, 파트너, 잠재 고객 등 다양한 형태의 회사를 포괄하며, 고객 데이터를 식별하고 관리하는 데 핵심적인 역할을 합니다.  이 필드를 통해 고객 기반을 분석하고, 고객 관계를 구축 및 유지하며, 마케팅 및 영업 활동을 타겟팅할 수 있습니다. 이름은 공식 회사 명칭을 사용하는 것을 권장합니다.",
+            "keywords": [
+              "고객",
+              "회사",
+              "거래처",
+              "파트너",
+              "기관",
+              "이름",
+              "고객사"
+            ]
+          },
+          {
+            "name": "Address",
+            "data_type": "VARCHAR(70) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Av. Brigadeiro Faria Lima, 2170",
+              "Theodor-Heuss-Straße 34",
+              "1498 rue Bélanger",
+              "Ullevålsveien 14",
+              "Klanova 9/506",
+              "Rilská 3174/6",
+              "Rotenturmstraße 4, 1010 Innere Stadt",
+              "Grétrystraat 63",
+              "Sønder Boulevard 51",
+              "Rua Dr. Falcão Filho, 155"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 59,
+            "business_name": "고객 주소",
+            "description": "고객의 거주지 주소를 나타냅니다.  배송, 청구, 고객 위치 분석 등 다양한 목적에 사용될 수 있으며, 정확한 주소 정보는 고객과의 원활한 커뮤니케이션과 서비스 제공에 필수적입니다. VARCHAR(70)으로 정의되어 비교적 상세한 주소 정보를 저장할 수 있도록 설계되었으며, NULL 값을 허용하여 주소 정보가 없는 경우에도 데이터 입력이 가능하도록 합니다.",
+            "keywords": [
+              "고객",
+              "주소",
+              "거주지",
+              "배송",
+              "청구",
+              "위치",
+              "우편물",
+              "택배"
+            ]
+          },
+          {
+            "name": "City",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "São José dos Campos",
+              "Stuttgart",
+              "Montréal",
+              "Oslo",
+              "Prague",
+              "Vienne",
+              "Brussels",
+              "Copenhagen",
+              "São Paulo",
+              "Rio de Janeiro"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 53,
+            "business_name": "고객 거주 도시",
+            "description": "고객이 거주하는 도시의 이름입니다. 고객의 지역별 분포를 파악하고, 마케팅 캠페인 타겟팅, 물류 최적화, 시장 분석 등에 활용될 수 있습니다. 다양한 국가의 도시 이름이 포함될 수 있습니다.",
+            "keywords": [
+              "고객",
+              "거주지",
+              "도시",
+              "지역",
+              "위치",
+              "분포",
+              "마케팅",
+              "타겟팅"
+            ]
+          },
+          {
+            "name": "State",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "SP",
+              "QC",
+              "RJ",
+              "DF",
+              "AB",
+              "BC",
+              "CA",
+              "WA",
+              "NY",
+              "NV"
+            ],
+            "null_ratio": 0.4915,
+            "unique_count": 25,
+            "business_name": "주/도",
+            "description": "고객의 주소 정보 중 주 또는 도를 나타내는 컬럼입니다.  샘플 데이터에서 보이는 'SP', 'QC', 'RJ', 'DF', 'AB'는 각각 브라질, 캐나다 등의 주/도를 나타내는 약어입니다. 고객의 지역별 분포를 파악하거나, 특정 지역 고객을 대상으로 하는 마케팅 전략 수립 시 활용될 수 있습니다.",
+            "keywords": [
+              "주소",
+              "지역",
+              "주",
+              "도",
+              "행정구역",
+              "약어"
+            ]
+          },
+          {
+            "name": "Country",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Brazil",
+              "Germany",
+              "Canada",
+              "Norway",
+              "Czech Republic",
+              "Austria",
+              "Belgium",
+              "Denmark",
+              "USA",
+              "Portugal"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 24,
+            "business_name": "고객 국가",
+            "description": "고객이 거주하는 국가 정보를 나타냅니다. 이 정보를 통해 고객 기반의 지리적 분포를 파악하고, 국가별 맞춤형 마케팅 전략을 수립하거나, 특정 국가의 고객에게 특별 프로모션을 제공하는 데 활용할 수 있습니다. 또한, 매출액, 고객 수 등 다양한 지표를 국가별로 분석하여 비즈니스 성과를 평가하고 개선하는 데 기여합니다.",
+            "keywords": [
+              "고객",
+              "국가",
+              "거주지",
+              "지역",
+              "지리",
+              "마케팅",
+              "프로모션",
+              "분석",
+              "매출",
+              "고객 기반"
+            ]
+          },
+          {
+            "name": "PostalCode",
+            "data_type": "VARCHAR(10) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "12227-000",
+              "70174",
+              "H2G 1A7",
+              "0171",
+              "14700",
+              "14300",
+              "1010",
+              "1000",
+              "1720",
+              "01007-010"
+            ],
+            "null_ratio": 0.0678,
+            "unique_count": 55,
+            "business_name": "우편번호",
+            "description": "고객의 주소와 관련된 우편번호 정보입니다. 지역별 마케팅, 배송, 통계 분석 등에 활용될 수 있습니다. 다양한 국가의 우편번호 형식을 지원하기 위해 문자열(VARCHAR) 형태로 저장되며, NULL 값 허용으로 인해 우편번호 정보가 없는 경우 빈 값으로 처리될 수 있습니다. 샘플 데이터에 따르면 숫자, 문자, 특수문자가 혼합된 다양한 형태의 우편번호가 저장될 수 있음을 알 수 있습니다.",
+            "keywords": [
+              "주소",
+              "배송",
+              "지역",
+              "마케팅",
+              "우편번호",
+              "집계",
+              "통계"
+            ]
+          },
+          {
+            "name": "Phone",
+            "data_type": "VARCHAR(24) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "+55 (12) 3923-5555",
+              "+49 0711 2842222",
+              "+1 (514) 721-4711",
+              "+47 22 44 22 22",
+              "+420 2 4172 5555",
+              "+420 2 4177 0449",
+              "+43 01 5134505",
+              "+32 02 219 03 03",
+              "+453 3331 9991",
+              "+55 (11) 3033-5446"
+            ],
+            "null_ratio": 0.0169,
+            "unique_count": 58,
+            "business_name": "고객 전화번호",
+            "description": "고객의 연락 가능한 전화번호 정보를 저장합니다. 국제전화번호 형식을 포함하여 다양한 국가의 전화번호를 수용할 수 있도록 VARCHAR(24)로 정의되었습니다. NULL 값 허용으로 전화번호가 없는 고객도 등록 가능합니다.",
+            "keywords": [
+              "고객",
+              "연락처",
+              "전화",
+              "국제전화",
+              "휴대폰",
+              "Phone Number"
+            ]
+          },
+          {
+            "name": "Fax",
+            "data_type": "VARCHAR(24) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "+55 (12) 3923-5566",
+              "+420 2 4172 5555",
+              "+55 (11) 3033-4564",
+              "+55 (11) 3055-8131",
+              "+55 (21) 2271-7070",
+              "+55 (61) 3363-7855",
+              "+1 (780) 434-5565",
+              "+1 (604) 688-8756",
+              "+1 (650) 253-0000",
+              "+1 (425) 882-8081"
+            ],
+            "null_ratio": 0.7966,
+            "unique_count": 12,
+            "business_name": "팩스 번호",
+            "description": "고객의 팩스 번호를 저장하는 컬럼입니다. 팩스를 통한 문서 송수신이 필요한 경우 사용됩니다. 국가번호를 포함한 전체 팩스 번호가 저장되며, NULL 값을 허용하여 팩스 번호가 없는 고객 정보도 저장할 수 있습니다.",
+            "keywords": [
+              "고객",
+              "팩스",
+              "번호",
+              "FAX",
+              "연락처",
+              "수신",
+              "송신"
+            ]
+          },
+          {
+            "name": "Email",
+            "data_type": "VARCHAR(60) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "luisg@embraer.com.br",
+              "leonekohler@surfeu.de",
+              "ftremblay@gmail.com",
+              "bjorn.hansen@yahoo.no",
+              "frantisekw@jetbrains.com",
+              "hholy@gmail.com",
+              "astrid.gruber@apple.at",
+              "daan_peeters@apple.be",
+              "kara.nielsen@jubii.dk",
+              "eduardo@woodstock.com.br"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 59,
+            "business_name": "고객 이메일 주소",
+            "description": "고객 식별 및 연락을 위한 이메일 주소입니다. 이메일 주소는 고객 계정 생성, 마케팅 캠페인, 서비스 알림 등 다양한 목적으로 사용됩니다. 유효한 이메일 주소 형식을 가지며, 중복된 값은 허용하지 않는 것이 일반적입니다.",
+            "keywords": [
+              "고객",
+              "이메일",
+              "주소",
+              "연락",
+              "계정",
+              "마케팅",
+              "알림"
+            ]
+          },
+          {
+            "name": "SupportRepId",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Employee.EmployeeId",
+            "comment": null,
+            "sample_values": [
+              3,
+              5,
+              4
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 3,
+            "business_name": "담당 지원 직원 ID",
+            "description": "각 고객을 담당하는 지원 직원의 ID입니다. Employee 테이블의 EmployeeId를 참조하여, 누가 해당 고객을 지원하는지 파악할 수 있습니다. NULL 값은 담당 지원 직원이 아직 지정되지 않았음을 의미합니다.",
+            "keywords": [
+              "고객",
+              "지원",
+              "담당자",
+              "직원",
+              "관계",
+              "EmployeeId"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Employee",
+        "schema": null,
+        "row_count": 8,
+        "comment": null,
+        "business_name": "직원",
+        "description": "회사의 직원 정보를 관리하는 테이블입니다. 각 직원의 개인 정보 (이름, 주소, 연락처 등), 직책, 소속 보고 라인, 입사일 및 생년월일 등의 정보를 포함합니다.",
+        "columns": [
+          {
+            "name": "EmployeeId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "직원 ID",
+            "description": "직원 테이블의 각 레코드를 고유하게 식별하는 ID입니다. 이 ID는 내부 시스템에서 직원을 관리하고 참조하는 데 사용되며, 다른 테이블과의 관계를 설정하는 데 핵심적인 역할을 수행합니다. 자동 생성되는 일련번호 형태를 가지며, 변경되지 않는 속성을 가집니다.",
+            "keywords": [
+              "직원",
+              "ID",
+              "식별자",
+              "고유번호",
+              "사번"
+            ]
+          },
+          {
+            "name": "LastName",
+            "data_type": "VARCHAR(20) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Adams",
+              "Edwards",
+              "Peacock",
+              "Park",
+              "Johnson",
+              "Mitchell",
+              "King",
+              "Callahan"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "직원 성",
+            "description": "직원의 성(LastName)을 나타냅니다. 직원 식별 및 인사 관리, 조직도 구성 등에 사용될 수 있으며, 이름과 함께 직원을 특정하는 중요한 정보입니다. 검색 및 정렬 시 주요 기준으로 활용됩니다.",
+            "keywords": [
+              "직원",
+              "성",
+              "이름",
+              "인사",
+              "조직",
+              "검색",
+              "정렬"
+            ]
+          },
+          {
+            "name": "FirstName",
+            "data_type": "VARCHAR(20) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Andrew",
+              "Nancy",
+              "Jane",
+              "Margaret",
+              "Steve",
+              "Michael",
+              "Robert",
+              "Laura"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "직원 이름",
+            "description": "직원의 이름(First Name)을 나타냅니다. 채용, 인사, 급여 등 직원 관련 정보 식별 및 관리에 사용됩니다.  개인 식별 정보 중 하나이며, 다른 직원 정보와 함께 사용되어 직원을 특정합니다. 데이터는 한글, 영문 등의 문자열로 구성될 수 있습니다.",
+            "keywords": [
+              "직원",
+              "이름",
+              "성명",
+              "개인정보",
+              "인사"
+            ]
+          },
+          {
+            "name": "Title",
+            "data_type": "VARCHAR(30) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "General Manager",
+              "Sales Manager",
+              "Sales Support Agent",
+              "IT Manager",
+              "IT Staff"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 5,
+            "business_name": "직책",
+            "description": "직원의 회사 내 직책을 나타냅니다. 이는 조직 내 역할과 책임을 정의하며, 인사 관리, 조직 구조 분석, 급여 책정 등에 활용될 수 있습니다. 예시로는 'General Manager', 'Sales Manager', 'Sales Support Agent' 등이 있습니다.",
+            "keywords": [
+              "직원",
+              "인사",
+              "직책",
+              "역할",
+              "조직",
+              "직위",
+              "고용",
+              "인력"
+            ]
+          },
+          {
+            "name": "ReportsTo",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Employee.EmployeeId",
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              6
+            ],
+            "null_ratio": 0.125,
+            "unique_count": 3,
+            "business_name": "상급자 ID",
+            "description": "직원의 상급자를 나타내는 ID입니다. 이 컬럼은 직원 간의 보고 체계를 정의하며, 조직 구조를 파악하는 데 중요한 역할을 합니다. NULL 값은 최고 관리자이거나 보고할 상급자가 없는 경우를 의미할 수 있습니다.",
+            "keywords": [
+              "상급자",
+              "보고체계",
+              "조직",
+              "관리자",
+              "사원"
+            ]
+          },
+          {
+            "name": "BirthDate",
+            "data_type": "DATETIME",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "1962-02-18 00:00:00",
+              "1958-12-08 00:00:00",
+              "1973-08-29 00:00:00",
+              "1947-09-19 00:00:00",
+              "1965-03-03 00:00:00",
+              "1973-07-01 00:00:00",
+              "1970-05-29 00:00:00",
+              "1968-01-09 00:00:00"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "생년월일",
+            "description": "직원의 생년월일 정보를 저장하는 컬럼입니다.  인사 관리, 근태 관리, 복지 혜택 제공, 조직 분석 등 다양한 목적으로 활용될 수 있습니다.  정확한 연령 계산 및 직원 통계 자료를 생성하는 데 필수적인 정보입니다.  Null 값 허용은 생년월일 정보가 없는 경우에도 데이터 입력을 가능하게 합니다.",
+            "keywords": [
+              "직원",
+              "인사",
+              "생일",
+              "나이",
+              "연령",
+              "통계",
+              "근태",
+              "복지"
+            ]
+          },
+          {
+            "name": "HireDate",
+            "data_type": "DATETIME",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "2002-08-14 00:00:00",
+              "2002-05-01 00:00:00",
+              "2002-04-01 00:00:00",
+              "2003-05-03 00:00:00",
+              "2003-10-17 00:00:00",
+              "2004-01-02 00:00:00",
+              "2004-03-04 00:00:00"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 7,
+            "business_name": "입사일",
+            "description": "해당 직원이 회사에 입사한 날짜 및 시간을 나타냅니다. 직원 근속 기간 계산, 급여 및 복리후생 자격 결정, 조직 내 경력 관리 등 다양한 HR 프로세스에서 중요한 기준 정보로 활용될 수 있습니다. 채용 시점의 기록으로, 회사 정책 변경, 계약 갱신 등 인적 자원 관리의 핵심 데이터로 사용됩니다.  시간 정보까지 저장되어 있어, 필요에 따라 일별, 시간별 입사자 추이 분석 등에 활용될 수 있습니다.",
+            "keywords": [
+              "입사",
+              "채용",
+              "고용",
+              "근속",
+              "경력",
+              "인사",
+              "HR",
+              "입사일자",
+              "입사시간",
+              "고용일"
+            ]
+          },
+          {
+            "name": "Address",
+            "data_type": "VARCHAR(70) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "11120 Jasper Ave NW",
+              "825 8 Ave SW",
+              "1111 6 Ave SW",
+              "683 10 Street SW",
+              "7727B 41 Ave",
+              "5827 Bowness Road NW",
+              "590 Columbia Boulevard West",
+              "923 7 ST NW"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "직원 주소",
+            "description": "직원의 거주지 주소를 나타냅니다.  직원 위치 기반 분석, 출퇴근 관련 분석, 또는 특정 지역 거주 직원 대상 프로모션 등에 활용될 수 있습니다.  주소는 최대 70자까지 입력 가능하며, NULL 값 허용되어 주소 정보가 없는 경우 공백으로 처리될 수 있습니다.",
+            "keywords": [
+              "직원",
+              "주소",
+              "거주지",
+              "위치",
+              "지역",
+              "사무실 위치",
+              "출퇴근",
+              "근무지"
+            ]
+          },
+          {
+            "name": "City",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Edmonton",
+              "Calgary",
+              "Lethbridge"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 3,
+            "business_name": "직원 거주 도시",
+            "description": "직원이 거주하는 도시 정보를 나타냅니다. 회사 전체 직원의 지역 분포를 파악하거나, 특정 지역 거주 직원 대상으로 프로모션/이벤트 진행 시 활용될 수 있습니다. NULL 값 허용으로, 도시 정보가 없는 경우 빈 값으로 처리될 수 있습니다.",
+            "keywords": [
+              "직원",
+              "거주지",
+              "도시",
+              "지역",
+              "분포",
+              "주소",
+              "근무지"
+            ]
+          },
+          {
+            "name": "State",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "AB"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 1,
+            "business_name": "직원 거주 주",
+            "description": "직원이 거주하는 주(State) 정보를 나타냅니다. 미국, 캐나다 등 주(State)를 사용하는 국가에서 직원들의 지역별 분포를 파악하고 관리하는 데 사용될 수 있습니다. 2자리 주 약어(예: 'AB' - Alberta) 형태로 저장됩니다.",
+            "keywords": [
+              "직원",
+              "거주지",
+              "주",
+              "지역",
+              "분포",
+              "위치",
+              "관할"
+            ]
+          },
+          {
+            "name": "Country",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Canada"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 1,
+            "business_name": "국가",
+            "description": "직원이 거주하거나 근무하는 국가 정보를 나타냅니다. 이 정보는 직원 현황 파악, 국가별 인력 분포 분석, 다국적 기업의 인적 자원 관리, 그리고 급여 및 세금 관련 규정 준수에 활용될 수 있습니다. 또한, 국가별 직원 만족도 조사 및 문화적 다양성 분석에도 활용될 수 있습니다.",
+            "keywords": [
+              "국가",
+              "지역",
+              "거주지",
+              "근무지",
+              "인력",
+              "분포",
+              "다국적",
+              "인적자원",
+              "급여",
+              "세금",
+              "만족도",
+              "문화"
+            ]
+          },
+          {
+            "name": "PostalCode",
+            "data_type": "VARCHAR(10) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "T5K 2N1",
+              "T2P 2T3",
+              "T2P 5M5",
+              "T2P 5G3",
+              "T3B 1Y7",
+              "T3B 0C5",
+              "T1K 5N8",
+              "T1H 1Y8"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "우편번호",
+            "description": "직원의 거주지 우편번호 정보입니다. 이를 통해 직원들의 지역별 분포를 파악하거나, 특정 지역 거주 직원들을 대상으로 하는 마케팅 전략 수립 등에 활용할 수 있습니다. VARCHAR(10) 형식으로 저장되며, 캐나다 우편번호 형식을 따르는 것으로 보입니다 (예: T5K 2N1). NULL 값이 허용되므로, 일부 직원은 우편번호 정보가 없을 수 있습니다.",
+            "keywords": [
+              "직원",
+              "주소",
+              "지역",
+              "거주지",
+              "우편주소",
+              "캐나다",
+              "캐나다 우편번호"
+            ]
+          },
+          {
+            "name": "Phone",
+            "data_type": "VARCHAR(24) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "+1 (780) 428-9482",
+              "+1 (403) 262-3443",
+              "+1 (403) 263-4423",
+              "1 (780) 836-9987",
+              "+1 (403) 246-9887",
+              "+1 (403) 456-9986",
+              "+1 (403) 467-3351"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 7,
+            "business_name": "전화번호",
+            "description": "직원의 연락 가능한 전화번호를 저장합니다. 국제전화 코드, 지역번호, 전화번호를 포함할 수 있으며, 괄호, 공백, 대시 등의 특수 문자가 포함될 수 있습니다.  NULL 값 허용은 전화번호가 필수가 아님을 의미합니다.",
+            "keywords": [
+              "직원",
+              "연락처",
+              "전화",
+              "번호",
+              "휴대폰",
+              "핸드폰"
+            ]
+          },
+          {
+            "name": "Fax",
+            "data_type": "VARCHAR(24) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "+1 (780) 428-3457",
+              "+1 (403) 262-3322",
+              "+1 (403) 262-6712",
+              "+1 (403) 263-4289",
+              "1 (780) 836-9543",
+              "+1 (403) 246-9899",
+              "+1 (403) 456-8485",
+              "+1 (403) 467-8772"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "팩스 번호",
+            "description": "직원의 팩스 번호를 저장합니다. 회사 내부 또는 외부와의 팩스 송수신에 사용될 수 있습니다. 팩스 번호가 없는 경우 NULL 값을 가질 수 있습니다.",
+            "keywords": [
+              "팩스",
+              "FAX",
+              "번호",
+              "연락처",
+              "사무"
+            ]
+          },
+          {
+            "name": "Email",
+            "data_type": "VARCHAR(60) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "andrew@chinookcorp.com",
+              "nancy@chinookcorp.com",
+              "jane@chinookcorp.com",
+              "margaret@chinookcorp.com",
+              "steve@chinookcorp.com",
+              "michael@chinookcorp.com",
+              "robert@chinookcorp.com",
+              "laura@chinookcorp.com"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 8,
+            "business_name": "이메일 주소",
+            "description": "직원의 이메일 주소를 저장하는 컬럼입니다. 회사의 중요한 연락 수단으로 사용되며, 사내 시스템 로그인, 업무 연락, 공지 전달 등에 활용됩니다. 이메일 주소는 직원 식별의 중요한 요소 중 하나입니다.",
+            "keywords": [
+              "이메일",
+              "주소",
+              "연락처",
+              "직원",
+              "계정",
+              "로그인",
+              "사내 시스템"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Genre",
+        "schema": null,
+        "row_count": 25,
+        "comment": null,
+        "business_name": "음악 장르",
+        "description": "음악 스트리밍 서비스에서 제공하는 음악의 장르를 관리하는 테이블입니다. 각 장르는 고유한 ID와 이름을 가지며, 음악 파일을 해당 장르로 분류하는 데 사용됩니다. 예를 들어, 'Pop', 'Rock', 'Classical' 등이 이 테이블에 저장됩니다.",
+        "columns": [
+          {
+            "name": "GenreId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 25,
+            "business_name": "장르 ID",
+            "description": "각 장르를 식별하는 고유 식별자입니다. 음악, 영화, 게임 등 다양한 콘텐츠의 장르를 구분하는 데 사용됩니다. 이 ID는 Genre 테이블의 Primary Key로서, 다른 테이블과의 관계 설정에 중요한 역할을 합니다.",
+            "keywords": [
+              "장르",
+              "ID",
+              "식별자",
+              "고유번호",
+              "Primary Key",
+              "분류",
+              "카테고리"
+            ]
+          },
+          {
+            "name": "Name",
+            "data_type": "VARCHAR(120) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Rock",
+              "Jazz",
+              "Metal",
+              "Alternative & Punk",
+              "Rock And Roll",
+              "Blues",
+              "Latin",
+              "Reggae",
+              "Pop",
+              "Soundtrack"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 25,
+            "business_name": "음악 장르명",
+            "description": "음악의 장르를 나타내는 이름입니다.  다양한 음악 스타일을 분류하고 식별하는 데 사용됩니다. 예를 들어, 'Rock', 'Jazz', 'Metal' 등이 이 컬럼에 저장됩니다.  음악 콘텐츠를 장르별로 그룹화하고 검색, 추천, 분석 등에 활용하기 위한 핵심 정보입니다.",
+            "keywords": [
+              "음악",
+              "장르",
+              "스타일",
+              "분류",
+              "검색",
+              "추천",
+              "음악 종류",
+              "곡 장르"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Invoice",
+        "schema": null,
+        "row_count": 412,
+        "comment": null,
+        "business_name": "청구서",
+        "description": "각 고객에게 발행된 청구서 정보를 담고 있습니다. 청구서 ID, 고객 ID, 청구 날짜, 청구 주소, 도시, 주, 국가, 우편번호, 그리고 총 청구 금액을 포함합니다. 이 테이블은 매출 분석, 고객별 구매 패턴 분석, 지역별 매출 분석 등 다양한 비즈니스 분석에 활용될 수 있습니다.",
+        "columns": [
+          {
+            "name": "InvoiceId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 412,
+            "business_name": "송장 식별자",
+            "description": "송장 테이블의 각 송장을 고유하게 식별하는 숫자입니다.  자동으로 증가하는 정수값으로, 특정 송장 레코드를 참조하거나 송장 간의 관계를 설정할 때 사용됩니다.  Primary Key이므로 테이블 내에서 유일해야 하며 NULL 값을 가질 수 없습니다.",
+            "keywords": [
+              "송장",
+              "ID",
+              "식별자",
+              "고유번호",
+              "PK",
+              "Primary Key",
+              "자동증가"
+            ]
+          },
+          {
+            "name": "CustomerId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Customer.CustomerId",
+            "comment": null,
+            "sample_values": [
+              2,
+              4,
+              8,
+              14,
+              23,
+              37,
+              38,
+              40,
+              42,
+              46
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 59,
+            "business_name": "고객 ID",
+            "description": "송장(Invoice)을 발행한 고객을 식별하는 ID입니다. 'Customer' 테이블의 'CustomerId'를 참조하여 어떤 고객에게 해당 송장이 발급되었는지 연결합니다. 고객 정보를 조회하거나 고객별 매출 분석 등에 활용될 수 있습니다.",
+            "keywords": [
+              "고객",
+              "ID",
+              "식별자",
+              "송장",
+              "매출",
+              "FK",
+              "외래키",
+              "Customer"
+            ]
+          },
+          {
+            "name": "InvoiceDate",
+            "data_type": "DATETIME",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "2021-01-01 00:00:00",
+              "2021-01-02 00:00:00",
+              "2021-01-03 00:00:00",
+              "2021-01-06 00:00:00",
+              "2021-01-11 00:00:00",
+              "2021-01-19 00:00:00",
+              "2021-02-01 00:00:00",
+              "2021-02-02 00:00:00",
+              "2021-02-03 00:00:00",
+              "2021-02-06 00:00:00"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 354,
+            "business_name": "청구서 발행일",
+            "description": "해당 청구서가 발행된 날짜와 시간을 나타냅니다. 이 정보는 청구 주기를 관리하고, 미수금을 추적하며, 전반적인 재무 보고서를 생성하는 데 필수적입니다. 정확한 청구서 발행일은 회계 감사 및 세금 신고 시 중요한 증거 자료로 활용될 수 있습니다.",
+            "keywords": [
+              "청구",
+              "발행일",
+              "날짜",
+              "시간",
+              "회계",
+              "재무",
+              "미수금",
+              "주기",
+              "세금",
+              "감사"
+            ]
+          },
+          {
+            "name": "BillingAddress",
+            "data_type": "VARCHAR(70) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Theodor-Heuss-Straße 34",
+              "Ullevålsveien 14",
+              "Grétrystraat 63",
+              "8210 111 ST NW",
+              "69 Salem Street",
+              "Berger Straße 10",
+              "Barbarossastraße 19",
+              "8, Rue Hanovre",
+              "9, Place Louis Barthou",
+              "3 Chatham Street"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 59,
+            "business_name": "청구지 주소",
+            "description": "송장 발급 대상의 청구지 주소를 나타냅니다. 이 정보는 송장 발송 및 고객 식별에 사용됩니다. 70자 이내의 문자열로 저장되며, 주소 정보가 없는 경우 NULL 값이 허용됩니다. 샘플 데이터에 따르면 도로명 주소 또는 지번 주소 형식을 가질 수 있습니다.",
+            "keywords": [
+              "청구",
+              "송장",
+              "주소",
+              "배송",
+              "고객",
+              "빌링"
+            ]
+          },
+          {
+            "name": "BillingCity",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Stuttgart",
+              "Oslo",
+              "Brussels",
+              "Edmonton",
+              "Boston",
+              "Frankfurt",
+              "Berlin",
+              "Paris",
+              "Bordeaux",
+              "Dublin"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 53,
+            "business_name": "청구지 도시",
+            "description": "송장(Invoice)이 발행된 청구지의 도시 이름을 나타냅니다. 고객의 거주 도시 또는 사업장 위치를 파악하는 데 사용될 수 있으며, 지역별 매출 분석, 마케팅 전략 수립, 세금 관련 정보 확인 등에 활용될 수 있습니다. NULL 값 허용으로 인해 도시 정보가 누락된 경우도 존재할 수 있습니다.",
+            "keywords": [
+              "청구지",
+              "도시",
+              "주소",
+              "지역",
+              "매출",
+              "고객",
+              "위치",
+              "송장"
+            ]
+          },
+          {
+            "name": "BillingState",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "AB",
+              "MA",
+              "Dublin",
+              "CA",
+              "WA",
+              "NV",
+              "WI",
+              "NS",
+              "NSW",
+              "SP"
+            ],
+            "null_ratio": 0.4903,
+            "unique_count": 25,
+            "business_name": "청구지 주/도",
+            "description": "청구서에 명시된 청구 주소의 주 또는 도 정보를 나타냅니다. 고객의 위치 파악, 지역별 매출 분석, 세금 계산 등의 목적으로 사용될 수 있습니다. 샘플 데이터를 통해 약어 또는 전체 이름이 사용될 수 있음을 알 수 있습니다.",
+            "keywords": [
+              "청구지",
+              "주소",
+              "주",
+              "도",
+              "청구",
+              "위치",
+              "지역",
+              "매출",
+              "세금"
+            ]
+          },
+          {
+            "name": "BillingCountry",
+            "data_type": "VARCHAR(40) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Germany",
+              "Norway",
+              "Belgium",
+              "Canada",
+              "USA",
+              "France",
+              "Ireland",
+              "United Kingdom",
+              "Australia",
+              "Chile"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 24,
+            "business_name": "청구 국가",
+            "description": "인보이스를 발행할 때 청구지 주소에 명시된 국가 정보입니다. 고객의 위치를 파악하고 지역별 매출 분석, 세금 계산, 배송 가능 지역 확인 등에 활용될 수 있습니다.",
+            "keywords": [
+              "청구",
+              "국가",
+              "청구지",
+              "위치",
+              "매출",
+              "지역"
+            ]
+          },
+          {
+            "name": "BillingPostalCode",
+            "data_type": "VARCHAR(10) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "70174",
+              "0171",
+              "1000",
+              "T6G 2C7",
+              "2113",
+              "60316",
+              "10779",
+              "75002",
+              "33000",
+              "N1 5LH"
+            ],
+            "null_ratio": 0.068,
+            "unique_count": 55,
+            "business_name": "청구지 우편번호",
+            "description": "청구서에 명시된 청구지 주소의 우편번호입니다. 고객의 지역 정보 파악 및 배송 관련 정보 확인에 사용될 수 있습니다. NULL 값을 허용하므로, 우편번호 정보가 없는 경우 비어 있을 수 있습니다.",
+            "keywords": [
+              "청구",
+              "주소",
+              "우편번호",
+              "배송",
+              "지역",
+              "Billing",
+              "Postal Code"
+            ]
+          },
+          {
+            "name": "Total",
+            "data_type": "DECIMAL(10, 2)",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "1.98",
+              "3.96",
+              "5.94",
+              "8.91",
+              "13.86",
+              "0.99",
+              "6.94",
+              "17.91",
+              "18.86",
+              "21.86"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 23,
+            "business_name": "총 결제 금액",
+            "description": "송장(Invoice)에 해당하는 총 결제 금액입니다. 여기에는 세금, 할인 등의 모든 요소가 반영된 최종 금액이 포함됩니다. 이 값은 송장 생성 시 계산되며, 재무 보고 및 분석에 중요한 지표로 사용됩니다.",
+            "keywords": [
+              "송장",
+              "결제",
+              "금액",
+              "총액",
+              "판매",
+              "매출",
+              "재무",
+              "정산"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "InvoiceLine",
+        "schema": null,
+        "row_count": 2240,
+        "comment": null,
+        "business_name": "송장 항목",
+        "description": "송장에 포함된 개별 항목에 대한 상세 정보를 저장하는 테이블입니다. 각 송장 항목은 특정 트랙(음악)에 대한 가격과 수량을 나타냅니다. 이 테이블을 통해 어떤 송장에 어떤 음악이 얼마에 몇 개 판매되었는지 추적할 수 있습니다.",
+        "columns": [
+          {
+            "name": "InvoiceLineId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 2240,
+            "business_name": "청구 항목 ID",
+            "description": "각 청구서 항목을 고유하게 식별하는 ID입니다. 이 ID는 청구서 내의 각 세부 항목을 추적하고 관리하는 데 사용됩니다. 시스템 내부적으로 사용되는 식별자이며, 자동 생성되는 숫자 값입니다.",
+            "keywords": [
+              "청구",
+              "항목",
+              "ID",
+              "식별자",
+              "PK",
+              "자동생성",
+              "고유",
+              "InvoiceLine"
+            ]
+          },
+          {
+            "name": "InvoiceId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Invoice.InvoiceId",
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 412,
+            "business_name": "송장 ID",
+            "description": "송장 항목이 속한 송장의 고유 식별자입니다. Invoice 테이블의 InvoiceId를 참조하여 송장 항목이 어떤 송장에 포함되는지 나타냅니다. 각 송장 항목은 특정 송장과 연결되므로, 송장별 항목 집계를 하거나 특정 송장에 포함된 항목을 조회할 때 사용됩니다.",
+            "keywords": [
+              "송장",
+              "송장 식별자",
+              "송장 번호",
+              "Invoice",
+              "FK",
+              "외래키",
+              "참조"
+            ]
+          },
+          {
+            "name": "TrackId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Track.TrackId",
+            "comment": null,
+            "sample_values": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              16,
+              20,
+              24,
+              28
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 1984,
+            "business_name": "트랙 ID",
+            "description": "송장 항목에 포함된 트랙(음악 또는 비디오)을 식별하는 고유 ID입니다. 이 ID를 통해 해당 송장 항목이 어떤 트랙과 연결되어 있는지 알 수 있습니다. Track 테이블의 TrackId를 참조하여 트랙에 대한 상세 정보를 확인할 수 있습니다.",
+            "keywords": [
+              "트랙",
+              "음악",
+              "비디오",
+              "ID",
+              "송장",
+              "항목",
+              "연결",
+              "식별자"
+            ]
+          },
+          {
+            "name": "UnitPrice",
+            "data_type": "DECIMAL(10, 2)",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "0.99"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 2,
+            "business_name": "단가",
+            "description": "송장 품목의 개별 단가를 나타냅니다. 소수점 이하 2자리까지 허용하며, 0 이상의 값을 가집니다. 각 품목별 판매 가격을 결정하는 중요한 정보이며, 송장 전체 금액 계산의 기본 요소입니다.",
+            "keywords": [
+              "가격",
+              "판매가",
+              "개당 가격",
+              "송장 항목",
+              "금액",
+              "단위 가격"
+            ]
+          },
+          {
+            "name": "Quantity",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 1,
+            "business_name": "청구 품목 수량",
+            "description": "청구서의 각 품목에 대한 수량을 나타냅니다. 예를 들어, '청구서 ID 123'에 '상품 A'가 3개 포함되어 있다면, 해당 '상품 A'에 대한 Quantity 값은 3이 됩니다.  주문 수량, 판매 수량, 반품 수량 등 다양한 유형의 수량을 나타낼 수 있으며, 일반적으로 양의 정수 값을 가집니다.",
+            "keywords": [
+              "청구서",
+              "품목",
+              "수량",
+              "주문",
+              "판매",
+              "반품",
+              "개수"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "MediaType",
+        "schema": null,
+        "row_count": 5,
+        "comment": null,
+        "business_name": "미디어 유형",
+        "description": "음악, 오디오북, 비디오 등 다양한 미디어 파일의 유형을 정의하고 관리하는 테이블입니다. 각 미디어 유형은 고유한 ID와 이름을 가지며, 다른 테이블에서 미디어 파일을 참조할 때 사용됩니다. 예를 들어, 'MP3', 'AAC', '비디오' 등이 미디어 유형으로 등록될 수 있습니다.",
+        "columns": [
+          {
+            "name": "MediaTypeId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 5,
+            "business_name": "미디어 유형 ID",
+            "description": "각 미디어 유형을 식별하는 고유한 ID입니다. 이 ID는 다른 테이블에서 미디어 유형을 참조할 때 사용됩니다. 예를 들어, 음악, 영화, 오디오북 등 다양한 미디어 형식을 구분하는 데 사용됩니다.",
+            "keywords": [
+              "미디어",
+              "유형",
+              "식별자",
+              "ID",
+              "구분",
+              "미디어 종류"
+            ]
+          },
+          {
+            "name": "Name",
+            "data_type": "VARCHAR(120) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "MPEG audio file",
+              "Protected AAC audio file",
+              "Protected MPEG-4 video file",
+              "Purchased AAC audio file",
+              "AAC audio file"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 5,
+            "business_name": "미디어 유형 이름",
+            "description": "미디어 파일의 유형을 나타내는 이름입니다. 오디오, 비디오, 또는 특정 코덱이나 보호 방식과 관련된 정보를 포함할 수 있습니다. 예를 들어, 'MPEG 오디오 파일', 'AAC 오디오 파일' 등이 있습니다. 이 컬럼은 파일 확장자와 함께 미디어 파일을 식별하고 분류하는 데 사용됩니다.",
+            "keywords": [
+              "미디어",
+              "유형",
+              "파일",
+              "오디오",
+              "비디오",
+              "코덱",
+              "형식",
+              "이름"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Playlist",
+        "schema": null,
+        "row_count": 18,
+        "comment": null,
+        "business_name": "재생 목록",
+        "description": "사용자가 음악을 구성하고 관리할 수 있도록 하는 재생 목록 정보를 저장합니다. 각 재생 목록은 고유한 ID와 이름을 가지며, 사용자는 이 재생 목록에 음악 트랙을 추가하여 자신만의 음악 컬렉션을 구성할 수 있습니다. 이 테이블은 재생 목록의 기본적인 정보(ID 및 이름)를 관리하며, 다른 테이블과 연결되어 재생 목록에 포함된 트랙 정보를 제공합니다.",
+        "columns": [
+          {
+            "name": "PlaylistId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 18,
+            "business_name": "플레이리스트 ID",
+            "description": "플레이리스트를 고유하게 식별하는 ID입니다. Playlist 테이블의 Primary Key로 사용되며, 각 플레이리스트를 구분하는 데 사용됩니다. 이 ID는 Playlist 테이블 내에서 유일해야 합니다. 샘플 데이터로 주어진 [1, 2, 3, 4, 5]는 플레이리스트 ID의 예시입니다.",
+            "keywords": [
+              "플레이리스트",
+              "ID",
+              "식별자",
+              "PK",
+              "고유",
+              "구분"
+            ]
+          },
+          {
+            "name": "Name",
+            "data_type": "VARCHAR(120) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Music",
+              "Movies",
+              "TV Shows",
+              "Audiobooks",
+              "90’s Music",
+              "Music Videos",
+              "Brazilian Music",
+              "Classical",
+              "Classical 101 - Deep Cuts",
+              "Classical 101 - Next Steps"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 14,
+            "business_name": "플레이리스트 명칭",
+            "description": "플레이리스트의 이름을 나타냅니다. 사용자가 플레이리스트를 식별하고 관리하는 데 중요한 역할을 합니다. 다양한 음악 장르, 분위기, 활동 또는 특정 이벤트와 관련된 이름이 사용될 수 있습니다. VARCHAR(120)으로 최대 120자까지 저장 가능하며 NULL 값을 허용하므로, 플레이리스트 생성 시 이름을 필수로 입력하지 않아도 됩니다.",
+            "keywords": [
+              "플레이리스트",
+              "이름",
+              "명칭",
+              "제목",
+              "카테고리"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PlaylistTrack",
+        "schema": null,
+        "row_count": 8715,
+        "comment": null,
+        "business_name": "플레이리스트 트랙 연결 테이블",
+        "description": "이 테이블은 플레이리스트와 트랙 간의 관계를 나타냅니다. 각 행은 특정 플레이리스트(PlaylistId)에 속한 특정 트랙(TrackId)을 나타냅니다.  PlaylistId와 TrackId는 각각 Playlist 테이블과 Track 테이블을 참조하여 플레이리스트와 트랙 정보를 연결합니다.  각 플레이리스트는 여러 트랙을 가질 수 있으며, 각 트랙은 여러 플레이리스트에 포함될 수 있는 다대다 관계를 모델링합니다.",
+        "columns": [
+          {
+            "name": "PlaylistId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Playlist.PlaylistId",
+            "comment": null,
+            "sample_values": [
+              1
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 14,
+            "business_name": "플레이리스트 ID",
+            "description": "플레이리스트 트랙이 속한 플레이리스트의 고유 식별자입니다. Playlist 테이블의 PlaylistId를 참조하는 외래 키이며, 어떤 플레이리스트에 해당 트랙이 속하는지를 나타냅니다.",
+            "keywords": [
+              "플레이리스트",
+              "ID",
+              "식별자",
+              "외래키",
+              "Playlist"
+            ]
+          },
+          {
+            "name": "TrackId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Track.TrackId",
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 3503,
+            "business_name": "트랙 ID",
+            "description": "PlaylistTrack 테이블에서 해당 트랙을 식별하는 고유 ID입니다. Track 테이블의 TrackId를 참조하여 플레이리스트에 포함된 트랙을 연결합니다. 각 트랙은 고유한 ID를 가지며, 이 ID를 통해 트랙의 상세 정보(제목, 아티스트 등)를 Track 테이블에서 조회할 수 있습니다.",
+            "keywords": [
+              "트랙",
+              "음악",
+              "ID",
+              "식별자",
+              "플레이리스트",
+              "TrackId",
+              "고유",
+              "음원"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Track",
+        "schema": null,
+        "row_count": 3483,
+        "comment": null,
+        "business_name": "음악 트랙 정보",
+        "description": "음악 트랙의 상세 정보를 저장하는 테이블입니다. 각 트랙의 고유 ID, 이름, 앨범 ID, 미디어 타입 ID, 장르 ID, 작곡가, 재생 시간(밀리초), 파일 크기(바이트), 그리고 판매 가격 정보를 담고 있습니다. 이를 통해 음악 컨텐츠 관리 및 판매, 사용 통계 분석 등에 활용될 수 있습니다.",
+        "columns": [
+          {
+            "name": "TrackId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 3503,
+            "business_name": "트랙 ID",
+            "description": "각 트랙(음악 파일)을 고유하게 식별하는 ID입니다. 시스템 내부적으로 트랙을 구분하고 관리하는 데 사용되며, 다른 테이블과의 관계를 설정하는 데 중요한 역할을 합니다.",
+            "keywords": [
+              "트랙",
+              "음악",
+              "ID",
+              "식별자",
+              "고유번호"
+            ]
+          },
+          {
+            "name": "Name",
+            "data_type": "VARCHAR(200) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "For Those About To Rock (We Salute You)",
+              "Balls to the Wall",
+              "Fast As a Shark",
+              "Restless and Wild",
+              "Princess of the Dawn",
+              "Put The Finger On You",
+              "Let's Get It Up",
+              "Inject The Venom",
+              "Snowballed",
+              "Evil Walks"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 3247,
+            "business_name": "트랙 제목",
+            "description": "음악 트랙의 제목을 나타냅니다. 앨범 내에서 특정 곡을 식별하고 검색하는 데 사용됩니다. 사용자는 이 제목을 통해 원하는 곡을 찾거나 재생 목록을 구성할 수 있습니다.",
+            "keywords": [
+              "음악",
+              "트랙",
+              "제목",
+              "노래",
+              "곡",
+              "검색",
+              "재생 목록"
+            ]
+          },
+          {
+            "name": "AlbumId",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Album.AlbumId",
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 347,
+            "business_name": "앨범 ID",
+            "description": "트랙이 속한 앨범을 식별하는 외부 키입니다. Album 테이블의 AlbumId를 참조하며, 트랙과 앨범 간의 관계를 나타냅니다. NULL 값 허용으로 앨범에 속하지 않은 트랙이 존재할 수 있음을 의미합니다. (예: 특정 앨범에 포함되지 않은 보너스 트랙 등)",
+            "keywords": [
+              "앨범",
+              "트랙",
+              "관계",
+              "외부 키",
+              "AlbumId",
+              "정수형",
+              "ID"
+            ]
+          },
+          {
+            "name": "MediaTypeId",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "MediaType.MediaTypeId",
+            "comment": null,
+            "sample_values": [
+              1,
+              2
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 5,
+            "business_name": "미디어 유형 ID",
+            "description": "트랙(음악 파일)이 어떤 미디어 유형(예: MPEG 오디오 파일, 보호된 AAC 오디오 파일)에 속하는지 식별하는 ID입니다. MediaType 테이블과의 관계를 통해 미디어 유형에 대한 상세 정보를 확인할 수 있습니다.",
+            "keywords": [
+              "미디어",
+              "음악",
+              "파일",
+              "유형",
+              "종류",
+              "포맷"
+            ]
+          },
+          {
+            "name": "GenreId",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "foreign_key_ref": "Genre.GenreId",
+            "comment": null,
+            "sample_values": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 25,
+            "business_name": "음악 장르 ID",
+            "description": "각 트랙(음악)이 속하는 장르를 식별하는 ID입니다. Genre 테이블의 GenreId를 참조하여 트랙의 장르 정보를 연결합니다. NULL 값은 장르가 지정되지 않은 트랙을 의미할 수 있습니다.",
+            "keywords": [
+              "음악",
+              "트랙",
+              "장르",
+              "ID",
+              "분류",
+              "카테고리"
+            ]
+          },
+          {
+            "name": "Composer",
+            "data_type": "VARCHAR(220) COLLATE \"utf8mb3_general_ci\"",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "Angus Young, Malcolm Young, Brian Johnson",
+              "U. Dirkschneider, W. Hoffmann, H. Frank, P. Baltes, S. Kaufmann, G. Hoffmann",
+              "F. Baltes, S. Kaufman, U. Dirkscneider & W. Hoffman",
+              "F. Baltes, R.A. Smith-Diesel, S. Kaufman, U. Dirkscneider & W. Hoffman",
+              "Deaffy & R.A. Smith-Diesel",
+              "AC/DC",
+              "Steven Tyler, Joe Perry, Jack Blades, Tommy Shaw",
+              "Steven Tyler, Joe Perry",
+              "Steven Tyler, Joe Perry, Jim Vallance, Holly Knight",
+              "Steven Tyler, Joe Perry, Desmond Child"
+            ],
+            "null_ratio": 0.2789,
+            "unique_count": 852,
+            "business_name": "작곡가",
+            "description": "음악 트랙을 작곡한 사람 혹은 그룹의 이름입니다. 여러 작곡가가 있는 경우 쉼표로 구분됩니다. 이 정보는 저작권 관리, 로열티 분배, 음악 검색 및 추천 알고리즘에 활용될 수 있습니다.",
+            "keywords": [
+              "작곡",
+              "음악",
+              "트랙",
+              "저작권",
+              "로열티",
+              "아티스트",
+              "그룹",
+              "참여자"
+            ]
+          },
+          {
+            "name": "Milliseconds",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              343719,
+              342562,
+              230619,
+              252051,
+              375418,
+              205662,
+              233926,
+              210834,
+              203102,
+              263497
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 3080,
+            "business_name": "트랙 길이 (밀리초)",
+            "description": "각 트랙의 재생 시간을 밀리초 단위로 나타내는 컬럼입니다. 음악 파일이나 오디오 트랙의 길이를 측정하고 관리하는 데 사용됩니다. 이 값을 통해 트랙의 재생 시간 순서로 정렬하거나, 특정 길이의 트랙을 검색하는 데 활용할 수 있습니다. 또한, 전체 앨범이나 플레이리스트의 총 재생 시간을 계산하는 데도 사용될 수 있습니다.",
+            "keywords": [
+              "트랙",
+              "길이",
+              "재생시간",
+              "밀리초",
+              "오디오",
+              "음악",
+              "시간"
+            ]
+          },
+          {
+            "name": "Bytes",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              11170334,
+              5510424,
+              3990994,
+              4331779,
+              6290521,
+              6713451,
+              7636561,
+              6852860,
+              6599424,
+              8611245
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 3501,
+            "business_name": "트랙 용량 (바이트)",
+            "description": "개별 트랙 파일의 크기를 바이트 단위로 나타냅니다. 이 정보를 통해 트랙의 품질, 저장 공간 사용량, 다운로드 시간 등을 추정할 수 있습니다. NULL 값은 해당 트랙의 용량 정보가 누락되었음을 의미합니다.",
+            "keywords": [
+              "트랙",
+              "용량",
+              "파일 크기",
+              "바이트",
+              "저장 공간",
+              "음악 파일",
+              "오디오 파일"
+            ]
+          },
+          {
+            "name": "UnitPrice",
+            "data_type": "DECIMAL(10, 2)",
+            "nullable": false,
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "foreign_key_ref": null,
+            "comment": null,
+            "sample_values": [
+              "0.99"
+            ],
+            "null_ratio": 0.0,
+            "unique_count": 2,
+            "business_name": "곡 단가",
+            "description": "개별 음원 트랙의 판매 가격을 나타냅니다. 소수점 둘째 자리까지 정확하게 표현하여, 트랙별 수익 계산 및 가격 정책 결정에 사용됩니다.  각 트랙의 가격은 고정되어 있으며, 할인 등의 프로모션은 별도로 관리됩니다.",
+            "keywords": [
+              "음원",
+              "트랙",
+              "가격",
+              "단가",
+              "판매",
+              "수익",
+              "정가",
+              "곡 가격"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

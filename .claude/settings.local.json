@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(mysql:*)",
+      "Bash(curl:*)",
+      "Bash(Scripts/sqe profile:*)",
+      "Bash(PYTHONIOENCODING=utf-8 PYTHONUTF8=1 Scripts/python:*)",
+      "Bash(Scripts/pip install:*)",
+      "Bash(Scripts/python:*)",
+      "Bash(Scripts/pip show:*)",
+      "Bash(Scripts/python.exe:*)",
+      "Bash(cmd:*)",
+      "Bash(Scripts/pip.exe show:*)",
+      "Bash(ls:*)",
+      "Bash(powershell:*)"
+    ]
+  }
+}

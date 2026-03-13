@@ -1,0 +1,176 @@
+{
+  "version": "4.0",
+  "description": "BridgeSQL 벤치마크 — weld_db 구어체 질문. expected_value로 정답 정확도(Answer Accuracy) 측정. 실행 성공 ≠ 정답임을 증명.",
+  "tables": ["image_metadata", "ndt_info", "product_info"],
+  "qa_pairs": [
+    {
+      "id": 1,
+      "question": "사진 몇 개야?",
+      "expected_sql": "SELECT COUNT(*) FROM `image_metadata`",
+      "expected_value": 269925,
+      "difficulty": "easy",
+      "tags": ["COUNT"]
+    },
+    {
+      "id": 2,
+      "question": "정상 사진 몇 개야?",
+      "expected_sql": "SELECT COUNT(*) FROM `image_metadata` WHERE `정상여부` = 0",
+      "expected_value": 268349,
+      "difficulty": "easy",
+      "tags": ["COUNT", "정상여부=0이정상", "반직관적코드"],
+      "semantic_key": "0=정상, 1=비정상 — Baseline은 1=정상으로 혼동"
+    },
+    {
+      "id": 3,
+      "question": "불량 사진 몇 장이야?",
+      "expected_sql": "SELECT COUNT(*) FROM `image_metadata` WHERE `결함_유형` IS NOT NULL",
+      "expected_value": 1576,
+      "difficulty": "easy",
+      "tags": ["COUNT", "NULL필터"]
+    },
+    {
+      "id": 4,
+      "question": "검사 기록 총 몇 건이야?",
+      "expected_sql": "SELECT COUNT(*) FROM `ndt_info`",
+      "expected_value": 6365,
+      "difficulty": "easy",
+      "tags": ["COUNT"]
+    },
+    {
+      "id": 5,
+      "question": "제품 몇 개 있어?",
+      "expected_sql": "SELECT COUNT(*) FROM `product_info`",
+      "expected_value": 5002,
+      "difficulty": "easy",
+      "tags": ["COUNT"]
+    },
+    {
+      "id": 6,
+      "question": "최근에 등록된 검사 5건만 보여줘",
+      "expected_sql": "SELECT * FROM `ndt_info` ORDER BY `등록일` DESC LIMIT 5",
+      "expected_value": 5,
+      "difficulty": "easy",
+      "tags": ["ORDER BY", "LIMIT"]
+    },
+    {
+      "id": 7,
+      "question": "두꺼운 파이프 순서대로 10개만",
+      "expected_sql": "SELECT `제품번호`, `제품_두께_mm` FROM `product_info` ORDER BY `제품_두께_mm` DESC LIMIT 10",
+      "expected_value": 10,
+      "difficulty": "easy",
+      "tags": ["ORDER BY", "LIMIT"]
+    },
+    {
+      "id": 8,
+      "question": "수주번호 종류가 몇 가지야?",
+      "expected_sql": "SELECT COUNT(DISTINCT `수주번호`) FROM `ndt_info`",
+      "expected_value": 84,
+      "difficulty": "easy",
+      "tags": ["DISTINCT", "COUNT"]
+    },
+    {
+      "id": 9,
+      "question": "엑스레이 검사 몇 번 했어?",
+      "expected_sql": "SELECT COUNT(*) FROM `ndt_info` WHERE `방법` = '디지털 RT'",
+      "expected_value": 5193,
+      "difficulty": "medium",
+      "tags": ["WHERE", "방법코드=RT"],
+      "semantic_key": "엑스레이='디지털 RT' — Baseline은 'X-RAY' 또는 'X레이'로 씀 → 0건 반환"
+    },
+    {
+      "id": 10,
+      "question": "떨어진 제품 몇 개야?",
+      "expected_sql": "SELECT COUNT(*) FROM `product_info` WHERE `비파괴검사_판정` = '부적합'",
+      "expected_value": 4,
+      "difficulty": "medium",
+      "tags": ["WHERE", "부적합값"],
+      "semantic_key": "떨어진='부적합' — Baseline은 '불합격'으로 씀 → 0건 반환"
+    },
+    {
+      "id": 11,
+      "question": "균열 난 거 몇 개야?",
+      "expected_sql": "SELECT COUNT(*) FROM `image_metadata` WHERE `결함_유형` = 'CR'",
+      "expected_value": 15,
+      "difficulty": "medium",
+      "tags": ["WHERE", "결함코드=CR"],
+      "semantic_key": "균열='CR' — Baseline은 '균열' 또는 'Crack'으로 씀 → 0건 반환"
+    },
+    {
+      "id": 12,
+      "question": "파이프 끝부분 사진 몇 장이야?",
+      "expected_sql": "SELECT COUNT(*) FROM `image_metadata` WHERE `강관_위치` = 'ENDTAP'",
+      "expected_value": 8482,
+      "difficulty": "medium",
+      "tags": ["WHERE", "위치코드=ENDTAP"],
+      "semantic_key": "끝부분='ENDTAP' — Baseline은 '끝' 또는 '끝부분'으로 씀 → 0건 반환"
+    },
+    {
+      "id": 13,
+      "question": "방법별 검사 건수 알려줘",
+      "expected_sql": "SELECT `방법`, COUNT(*) AS 건수 FROM `ndt_info` WHERE `방법` IS NOT NULL GROUP BY `방법` ORDER BY 건수 DESC",
+      "expected_value": 4,
+      "difficulty": "medium",
+      "tags": ["GROUP BY"]
+    },
+    {
+      "id": 14,
+      "question": "검사자별 비파괴검사 건수 알려줘",
+      "expected_sql": "SELECT `비파괴검사_검사자`, COUNT(*) AS 건수 FROM `product_info` WHERE `비파괴검사_검사자` IS NOT NULL GROUP BY `비파괴검사_검사자` ORDER BY 건수 DESC",
+      "expected_value": null,
+      "difficulty": "medium",
+      "tags": ["GROUP BY"]
+    },
+    {
+      "id": 15,
+      "question": "초음파 검사 건수 알려줘",
+      "expected_sql": "SELECT COUNT(*) FROM `ndt_info` WHERE `방법` LIKE '%UT%'",
+      "expected_value": 1049,
+      "difficulty": "medium",
+      "tags": ["WHERE", "방법코드=UT"],
+      "semantic_key": "초음파='UT' — Baseline은 '초음파'로 씀 → 0건 반환"
+    },
+    {
+      "id": 16,
+      "question": "기공 결함이 파이프 끝쪽에 얼마나 있어?",
+      "expected_sql": "SELECT COUNT(*) FROM `image_metadata` WHERE `결함_유형` = 'PO' AND `강관_위치` = 'ENDTAP'",
+      "expected_value": 12,
+      "difficulty": "hard",
+      "tags": ["다중조건", "결함코드=PO", "위치코드=ENDTAP"],
+      "semantic_key": "기공='PO' AND 끝쪽='ENDTAP' — 두 도메인 코드 모두 필요"
+    },
+    {
+      "id": 17,
+      "question": "결함 있는데 정상으로 찍힌 이상한 사진 있어?",
+      "expected_sql": "SELECT COUNT(*) FROM `image_metadata` WHERE `결함_유형` IS NOT NULL AND `정상여부` = 0",
+      "expected_value": 0,
+      "difficulty": "hard",
+      "tags": ["다중조건", "정상여부=0이정상"],
+      "semantic_key": "정상으로찍힌='정상여부=0' — 0이 정상임을 알아야 함"
+    },
+    {
+      "id": 18,
+      "question": "비파괴랑 육안검사 둘 다 붙은 제품 수는?",
+      "expected_sql": "SELECT COUNT(*) FROM `product_info` WHERE `비파괴검사_판정` = '합격' AND `치수_육안검사_판정` = '합격'",
+      "expected_value": 4487,
+      "difficulty": "hard",
+      "tags": ["다중조건", "AND"]
+    },
+    {
+      "id": 19,
+      "question": "수주별 떨어진 검사 건수 많은 순으로 알려줘",
+      "expected_sql": "SELECT `수주번호`, COUNT(*) AS 부적합건수 FROM `ndt_info` WHERE `최종_판정` = '부적합' GROUP BY `수주번호` ORDER BY 부적합건수 DESC",
+      "expected_value": null,
+      "difficulty": "hard",
+      "tags": ["GROUP BY", "부적합값"],
+      "semantic_key": "떨어진='부적합' — Baseline은 '불합격'으로 씀"
+    },
+    {
+      "id": 20,
+      "question": "제품번호 있는 사진이랑 없는 사진 각각 몇 장이야?",
+      "expected_sql": "SELECT CASE WHEN `제품번호` IS NULL THEN '번호없음' ELSE '번호있음' END AS 구분, COUNT(*) AS 사진수 FROM `image_metadata` GROUP BY CASE WHEN `제품번호` IS NULL THEN '번호없음' ELSE '번호있음' END",
+      "expected_value": 2,
+      "difficulty": "hard",
+      "tags": ["CASE WHEN", "GROUP BY"]
+    }
+  ]
+}

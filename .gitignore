@@ -1,0 +1,35 @@
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+Lib/
+Scripts/
+Include/
+share/
+pyvenv.cfg
+*.egg-info/
+dist/
+build/
+
+# Data (all private)
+data/
+
+# Local config
+mcp_config.json
+.claude/
+Bridge_SQL/
+
+# Temp / debug
+debug_log.txt
+.codex_write_test.txt
+chinook_temp.sql
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,19 @@
+services:
+  bridgesql:
+    build: .
+    container_name: bridgesql
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT:-3306}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.0-flash}
+    volumes:
+      - bridgesql_data:/app/data
+    stdin_open: true
+    tty: true
+
+volumes:
+  bridgesql_data:

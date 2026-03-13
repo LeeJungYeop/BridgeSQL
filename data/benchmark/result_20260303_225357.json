@@ -1,0 +1,396 @@
+{
+  "timestamp": "2026-03-03T22:53:57.148702",
+  "database": "weld_db",
+  "summary": {
+    "total": 20,
+    "valid": 20,
+    "exec_ok": 20,
+    "correction_attempted": 1,
+    "correction_ok": 1,
+    "validity_rate": 1.0,
+    "exec_success_rate": 1.0,
+    "self_correction_rate": 1.0,
+    "avg_response_time_ms": 1679,
+    "by_difficulty": {
+      "easy": {
+        "total": 8,
+        "exec_ok": 8
+      },
+      "medium": {
+        "total": 8,
+        "exec_ok": 8
+      },
+      "hard": {
+        "total": 4,
+        "exec_ok": 4
+      }
+    }
+  },
+  "details": [
+    {
+      "id": 1,
+      "question": "전체 이미지 수는 몇 개인가요?",
+      "difficulty": "easy",
+      "tags": [
+        "COUNT",
+        "단순집계"
+      ],
+      "generated_sql": "SELECT count(*) FROM `image_metadata`",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 1,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1997
+    },
+    {
+      "id": 2,
+      "question": "결함이 있는 이미지는 몇 개인가요?",
+      "difficulty": "easy",
+      "tags": [
+        "COUNT",
+        "NULL필터"
+      ],
+      "generated_sql": "SELECT COUNT(*) FROM `image_metadata` WHERE `정상여부` = 0",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 1,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1498
+    },
+    {
+      "id": 3,
+      "question": "강관 위치별 이미지 수를 알려줘",
+      "difficulty": "easy",
+      "tags": [
+        "GROUP BY",
+        "집계"
+      ],
+      "generated_sql": "SELECT `강관_위치`, COUNT(*) AS `이미지 수` FROM `image_metadata` GROUP BY `강관_위치` ORDER BY `이미지 수` DESC;",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 3,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1857
+    },
+    {
+      "id": 4,
+      "question": "정상이 아닌 이미지를 10개만 보여줘",
+      "difficulty": "easy",
+      "tags": [
+        "WHERE",
+        "LIMIT"
+      ],
+      "generated_sql": "SELECT `파일_경로` FROM `image_metadata` WHERE `정상여부` = 0 LIMIT 10",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 10,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1405
+    },
+    {
+      "id": 5,
+      "question": "가장 최근에 수집된 이미지 5개를 보여줘",
+      "difficulty": "easy",
+      "tags": [
+        "ORDER BY",
+        "LIMIT"
+      ],
+      "generated_sql": "SELECT `파일_경로` FROM `image_metadata` ORDER BY `수집일자` DESC LIMIT 5",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 5,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1715
+    },
+    {
+      "id": 6,
+      "question": "수집일자별 이미지 수를 최근 순으로 보여줘",
+      "difficulty": "easy",
+      "tags": [
+        "GROUP BY",
+        "ORDER BY"
+      ],
+      "generated_sql": "SELECT `수집일자`, COUNT(*) AS `이미지 수` FROM `image_metadata` GROUP BY `수집일자` ORDER BY `수집일자` DESC",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 62,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1422
+    },
+    {
+      "id": 7,
+      "question": "전체 비파괴 검사 건수는 몇 건인가요?",
+      "difficulty": "easy",
+      "tags": [
+        "COUNT",
+        "단순집계"
+      ],
+      "generated_sql": "SELECT count(*) FROM `ndt_info`",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 1,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1612
+    },
+    {
+      "id": 8,
+      "question": "전체 제품 수는 몇 개인가요?",
+      "difficulty": "easy",
+      "tags": [
+        "COUNT",
+        "단순집계"
+      ],
+      "generated_sql": "SELECT count(*) FROM `product_info`",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 1,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1322
+    },
+    {
+      "id": 9,
+      "question": "비파괴검사 결과별 건수를 알려줘",
+      "difficulty": "medium",
+      "tags": [
+        "GROUP BY",
+        "최종판정"
+      ],
+      "generated_sql": "SELECT `최종_판정`, COUNT(*) FROM `ndt_info` GROUP BY `최종_판정`",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 2,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1297
+    },
+    {
+      "id": 10,
+      "question": "검사 방법별 비파괴 검사 건수를 알려줘",
+      "difficulty": "medium",
+      "tags": [
+        "GROUP BY",
+        "검사방법"
+      ],
+      "generated_sql": "SELECT `방법`, COUNT(*) AS `검사 건수` FROM `ndt_info` GROUP BY `방법`",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 4,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1374
+    },
+    {
+      "id": 11,
+      "question": "제품 재질별 제품 수를 알려줘",
+      "difficulty": "medium",
+      "tags": [
+        "GROUP BY",
+        "재질"
+      ],
+      "generated_sql": "SELECT `원자재_HEAT_LOT_BATCH`, COUNT(*) AS `제품 수` FROM `product_info` GROUP BY `원자재_HEAT_LOT_BATCH` ORDER BY COUNT(*) DESC;",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 465,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1915
+    },
+    {
+      "id": 12,
+      "question": "두께가 20mm 이상인 제품 목록을 보여줘",
+      "difficulty": "medium",
+      "tags": [
+        "WHERE",
+        "범위필터",
+        "치수"
+      ],
+      "generated_sql": "SELECT `제품번호` FROM `product_info` WHERE `제품_두께_mm` >= 20",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 788,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1410
+    },
+    {
+      "id": 13,
+      "question": "비파괴검사 검사자별 검사 건수를 알려줘",
+      "difficulty": "medium",
+      "tags": [
+        "GROUP BY",
+        "검사자"
+      ],
+      "generated_sql": "SELECT `비파괴검사_검사자`, COUNT(*) AS `검사 건수` FROM `product_info` GROUP BY `비파괴검사_검사자` ORDER BY `검사 건수` DESC",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 7,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1602
+    },
+    {
+      "id": 14,
+      "question": "결함 유형별 이미지 수와 비율을 알려줘",
+      "difficulty": "medium",
+      "tags": [
+        "GROUP BY",
+        "서브쿼리",
+        "비율"
+      ],
+      "generated_sql": "SELECT `결함_유형`, COUNT(*) AS `이미지 수`, (COUNT(*) * 100.0 / (SELECT COUNT(*) FROM `image_metadata`)) AS `비율` FROM `image_metadata` GROUP BY `결함_유형` ORDER BY `이미지 수` DESC;",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 18,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 2047
+    },
+    {
+      "id": 15,
+      "question": "수주번호별 비파괴 검사 건수와 불합격 건수를 알려줘",
+      "difficulty": "medium",
+      "tags": [
+        "GROUP BY",
+        "CASE WHEN",
+        "조건집계"
+      ],
+      "generated_sql": "SELECT `수주번호`, COUNT(*) AS `총 검사 건수`, SUM(CASE WHEN `최종_판정` = '부적합' THEN 1 ELSE 0 END) AS `불합격 건수` FROM `ndt_info` GROUP BY `수주번호`",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 84,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1816
+    },
+    {
+      "id": 16,
+      "question": "이미지가 있는 제품번호 목록을 10개 보여줘",
+      "difficulty": "medium",
+      "tags": [
+        "DISTINCT",
+        "NULL필터"
+      ],
+      "generated_sql": "SELECT DISTINCT `제품번호` FROM `image_metadata` LIMIT 10",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 10,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1402
+    },
+    {
+      "id": 17,
+      "question": "비파괴검사와 치수검사를 모두 통과한 제품 수는?",
+      "difficulty": "hard",
+      "tags": [
+        "다중조건",
+        "AND"
+      ],
+      "generated_sql": "SELECT COUNT(*) FROM `product_info` WHERE `비파괴검사_판정` = '합격' AND `치수_육안검사_판정` = '합격'",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 1,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1491
+    },
+    {
+      "id": 18,
+      "question": "제품번호별로 이미지 수와 비파괴검사 결과를 함께 보여줘",
+      "difficulty": "hard",
+      "tags": [
+        "JOIN",
+        "GROUP BY"
+      ],
+      "generated_sql": "SELECT\n  i.`제품번호`,\n  COUNT(DISTINCT i.`파일_경로`) AS image_count,\n  GROUP_CONCAT(DISTINCT n.`최종_판정`) AS ndt_results\nFROM `image_metadata` AS i\nLEFT JOIN `ndt_info` AS n\n  ON i.`제품번호` = n.`제품번호`\nGROUP BY\n  i.`제품번호`\nORDER BY\n  i.`제품번호`;",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 2474,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 2387
+    },
+    {
+      "id": 19,
+      "question": "월별 비파괴검사 건수 추이를 알려줘",
+      "difficulty": "hard",
+      "tags": [
+        "날짜처리",
+        "GROUP BY",
+        "문자열함수"
+      ],
+      "generated_sql": "SELECT STRFTIME('%Y-%m', `등록일`) AS `검사월`, COUNT(*) AS `검사건수` FROM `ndt_info` GROUP BY `검사월` ORDER BY `검사월`",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 4,
+      "correction_attempted": true,
+      "correction_ok": true,
+      "corrected_sql": "SELECT DATE_FORMAT(`등록일`, '%Y-%m') AS `검사월`,\n       COUNT(*) AS `검사건수`\nFROM `ndt_info`\nGROUP BY `검사월`\nORDER BY `검사월`",
+      "error": null,
+      "response_time_ms": 2081
+    },
+    {
+      "id": 20,
+      "question": "결함이 있으면서 정상 판정을 받은 이미지는 몇 개인가요?",
+      "difficulty": "hard",
+      "tags": [
+        "다중조건",
+        "NULL필터",
+        "이상데이터"
+      ],
+      "generated_sql": "SELECT count(*) FROM `image_metadata` WHERE `결함_유형` IS NOT NULL AND `결함_유형` != '' AND `정상여부` = 0",
+      "is_valid": true,
+      "exec_ok": true,
+      "row_count": 1,
+      "correction_attempted": false,
+      "correction_ok": false,
+      "corrected_sql": null,
+      "error": null,
+      "response_time_ms": 1940
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "session_id": "default",
+  "turns": [
+    {
+      "timestamp": "2026-02-11T17:27:42.106269",
+      "user_input": "최종 판정이 불량인 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '부적합'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-11T17:53:32.413550",
+      "user_input": "최종 판정이 불량인 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '부적합'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-19T15:46:27.384725",
+      "user_input": "최종 판정이 불량인 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '부적합'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-19T15:51:21.847499",
+      "user_input": "최종 판정이 정상인 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '합격'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-19T15:54:38.649236",
+      "user_input": "최종 판정이 정상인 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '합격'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-20T17:15:20.550516",
+      "user_input": "최종 판정입 불량인 제품의 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '부적합'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-20T17:19:49.181149",
+      "user_input": "최종 판정이 불량인 제품의 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '부적합'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-20T17:23:50.370718",
+      "user_input": "최종판정이 불량인 제품의 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '부적합'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-20T17:24:16.977553",
+      "user_input": "최종 판정이 합격인 제품의 개수",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '합격'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-20T17:24:50.200319",
+      "user_input": "비파괴 검사자가 누구누구 있어?",
+      "system_response": "SELECT DISTINCT `비파괴검사_검사자`\nFROM `product_info`",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-20T17:34:44.629402",
+      "user_input": "최종 검사자가 있니?",
+      "system_response": "SELECT DISTINCT `검사_검토자`\nFROM `product_info`\nWHERE `검사_검토자` IS NOT NULL",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-25T16:42:33.912918",
+      "user_input": "어떤 결함이 있지?",
+      "system_response": "SELECT DISTINCT `결함_유형`\nFROM `image_metadata`",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-02-25T17:00:26.900136",
+      "user_input": "어떤 결함이 있지?",
+      "system_response": "SELECT DISTINCT `결함_유형`\nFROM `image_metadata`",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-03-03T18:24:01.844168",
+      "user_input": "불량이 몇개고",
+      "system_response": "SELECT COUNT(*)\nFROM `ndt_info`\nWHERE `최종_판정` = '부적합'",
+      "clarification_options": null,
+      "selected_option": null
+    },
+    {
+      "timestamp": "2026-03-03T18:41:34.721636",
+      "user_input": "IQI가 몇 개고",
+      "system_response": "SELECT COUNT(*)\nFROM `image_metadata`\nWHERE `강관_위치` = 'IQI'",
+      "clarification_options": null,
+      "selected_option": null
+    }
+  ]
+}

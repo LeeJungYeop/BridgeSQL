@@ -1,0 +1,9 @@
+﻿{
+  "mcpServers": {
+    "bridgesql": {
+      "command": "C:\\Users\\lee\\Desktop\\Projects\\DevTools\\git\\BridgeSQL\\Bridge_SQL\\run_bridgesql_mcp.cmd",
+      "args": [],
+      "cwd": "C:\\Users\\lee\\Desktop\\Projects\\DevTools\\git\\BridgeSQL\\Bridge_SQL"
+    }
+  }
+}
