@@ -11,7 +11,7 @@ from chromadb.config import Settings as ChromaSettings
 from chromadb.utils import embedding_functions
 
 from semantic_engine.config import get_settings
-from semantic_engine.profiler.schema_extractor import SchemaInfo
+from semantic_engine.db.schema_extractor import SchemaInfo
 
 
 # 한국어 특화 임베딩 모델

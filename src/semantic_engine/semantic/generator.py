@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from semantic_engine.config import get_settings
 import google.generativeai as genai
 
-from semantic_engine.profiler.schema_extractor import SchemaInfo, TableInfo, ColumnInfo
+from semantic_engine.db.schema_extractor import SchemaInfo, TableInfo, ColumnInfo
 
 
 @dataclass

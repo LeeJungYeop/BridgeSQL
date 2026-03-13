@@ -193,9 +193,9 @@ def cmd_config():
 # ---------------------------------------------------------------------------
 
 async def cmd_profile():
-    from semantic_engine.profiler.connector import DatabaseConnector
-    from semantic_engine.profiler.schema_extractor import SchemaExtractor
-    from semantic_engine.profiler.sampler import DataSampler
+    from semantic_engine.db.connector import DatabaseConnector
+    from semantic_engine.db.schema_extractor import SchemaExtractor
+    from semantic_engine.db.sampler import DataSampler
     from semantic_engine.semantic.generator import SemanticGenerator
     from semantic_engine.semantic.catalog import SemanticCatalog
     from semantic_engine.rag.retriever import SemanticRetriever
@@ -249,7 +249,7 @@ async def cmd_profile():
 # ---------------------------------------------------------------------------
 
 async def cmd_status():
-    from semantic_engine.profiler.connector import DatabaseConnector
+    from semantic_engine.db.connector import DatabaseConnector
     from semantic_engine.semantic.catalog import SemanticCatalog
     from semantic_engine.rag.retriever import SemanticRetriever
     from datetime import datetime
@@ -307,7 +307,7 @@ async def cmd_status():
 async def cmd_catalog(subcommand: str, args: list[str]):
     from semantic_engine.semantic.catalog import SemanticCatalog
     from semantic_engine.rag.retriever import SemanticRetriever
-    from semantic_engine.profiler.connector import DatabaseConnector
+    from semantic_engine.db.connector import DatabaseConnector
 
     catalog = SemanticCatalog()
 

@@ -62,7 +62,7 @@ slack = [
 
 [project.scripts]
 sqe = "semantic_engine.cli:main"
-sqe-mcp = "semantic_engine.mcp.server:main"
+sqe-mcp = "semantic_engine.server:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/semantic_engine"]

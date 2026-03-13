@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-from semantic_engine.profiler.schema_extractor import SchemaInfo
+from semantic_engine.db.schema_extractor import SchemaInfo
 
 _DEFAULT_CATALOG_DIR = Path.home() / ".bridgesql" / "catalog"
 
@@ -107,7 +107,7 @@ class SemanticCatalog:
     
     def _dict_to_schema(self, data: dict) -> SchemaInfo:
         """딕셔너리를 SchemaInfo 객체로 변환"""
-        from semantic_engine.profiler.schema_extractor import (
+        from semantic_engine.db.schema_extractor import (
             SchemaInfo, TableInfo, ColumnInfo
         )
         
